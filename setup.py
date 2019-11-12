@@ -18,7 +18,8 @@ setup(name='hd_glio',
           'numpy',
           'scikit-image',
           'SimpleITK',
-          'batchgenerators'
+          'batchgenerators',
+          'nnunet',
       ],
       entry_points={
           'console_scripts': [
