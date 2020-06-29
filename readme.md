@@ -111,16 +111,16 @@ hd-bet -i T2_reorient.nii.gz
 hd-bet -i FLAIR_reorient.nii.gz 
 
 # register all sequences to T1
-fsl5.0-flirt -in CT1_reorient.nii.gz -ref T1_reorient.nii.gz -out CT1_reorient_reg.nii.gz -dof 6 -interp spline
-fsl5.0-flirt -in T2_reorient.nii.gz -ref T1_reorient.nii.gz -out T2_reorient_reg.nii.gz -dof 6 -interp spline
-fsl5.0-flirt -in FLAIR_reorient.nii.gz -ref T1_reorient.nii.gz -out FLAIR_reorient_reg.nii.gz -dof 6 -interp spline
+fsl5.0-flirt -in CT1_reorient_bet.nii.gz -ref T1_reorient_bet.nii.gz -out CT1_reorient_bet_reg.nii.gz -dof 6 -interp spline
+fsl5.0-flirt -in T2_reorient_bet.nii.gz -ref T1_reorient.nii.gz -out T2_reorient_bet_reg.nii.gz -dof 6 -interp spline
+fsl5.0-flirt -in FLAIR_reorient_bet.nii.gz -ref T1_reorient.nii.gz -out FLAIR_reorient_bet_reg.nii.gz -dof 6 -interp spline
 
 # reapply T1 brain mask (this is important because HD-GLIO expects non-brain voxels to be 0 and the registration 
 process can introduce nonzero values
 # T1_BRAIN_MASK.nii.gz is the mask (not the brain extracted image!) as obtained from HD-Bet
-fsl5.0-fslmaths CT1_reorient_reg.nii.gz -mas T1_BRAIN_MASK.nii.gz CT1_reorient_reg_bet.nii.gz
-fsl5.0-fslmaths T2_reorient_reg.nii.gz -mas T1_BRAIN_MASK.nii.gz T2_reorient_reg_bet.nii.gz
-fsl5.0-fslmaths FLAIR_reorient_reg.nii.gz -mas T1_BRAIN_MASK.nii.gz FLAIR_reorient_reg_bet.nii.gz
+fsl5.0-fslmaths CT1_reorient_bet_reg.nii.gz -mas T1_BRAIN_MASK.nii.gz CT1_reorient_bet_reg.nii.gz
+fsl5.0-fslmaths T2_reorient_bet_reg.nii.gz -mas T1_BRAIN_MASK.nii.gz T2_reorient_bet_reg.nii.gz
+fsl5.0-fslmaths FLAIR_reorient_bet_reg.nii.gz -mas T1_BRAIN_MASK.nii.gz FLAIR_reorient_bet_reg.nii.gz
 ```
 
 After applying this example you would use `T1_reorient.nii.gz`, `CT1_reorient_reg_bet.nii.gz`, `T2_reorient_reg_bet.nii.gz` 
