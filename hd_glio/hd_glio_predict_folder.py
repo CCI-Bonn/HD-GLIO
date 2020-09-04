@@ -54,7 +54,7 @@ def main():
     maybe_download_weights()
 
     predict_from_folder(folder_with_parameter_files, input_folder, output_folder, (0, ), False, processes, processes,
-                        None, 0, 1, True, overwrite_existing=overwrite_existing, checkpoint_name='model_best')
+                        None, 0, 1, True, overwrite_existing=overwrite_existing, checkpoint_name='model_final_checkpoint')
 
 
 if __name__ == "__main__":

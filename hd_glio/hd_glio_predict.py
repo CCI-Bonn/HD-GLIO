@@ -57,7 +57,7 @@ def main():
     maybe_download_weights()
 
     predict_cases(folder_with_parameter_files, [[t1, t1c, t2, flair]], [output_file], (0, ), False, 1, 1, None, True,
-                  None, True, checkpoint_name="model_best")
+                  None, True, checkpoint_name="model_final_checkpoint")
 
 
 if __name__ == "__main__":

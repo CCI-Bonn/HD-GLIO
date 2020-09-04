@@ -2,7 +2,7 @@ from setuptools import setup
 
 
 setup(name='hd_glio',
-      version='1.5',
+      version='2.0',
       packages=["hd_glio"],
       description='Tool for brain tumor segmentation. This is the result of a joint project between the Department of '
                   'Neuroradiology at the Heidelberg University Hospital and the Division of Medical Image Computing at '
@@ -19,7 +19,7 @@ setup(name='hd_glio',
           'scikit-image',
           'SimpleITK',
           'batchgenerators',
-          'nnunet>1',
+          'nnunet>=1.1.5',
       ],
       entry_points={
           'console_scripts': [

@@ -17,11 +17,23 @@ from batchgenerators.utilities.file_and_folder_operations import *
 from hd_glio.paths import folder_with_parameter_files
 import shutil
 import zipfile
+import numpy as np
 
 
 def maybe_download_weights():
-    if not isfile(join(folder_with_parameter_files, 'fold_0', "model_best.model")) or not \
-            isfile(join(folder_with_parameter_files, 'fold_0', "model_best.model.pkl")):
+    download_weights = False
+    if not isfile(join(folder_with_parameter_files, 'fold_0', "model_final_checkpoint.model")) or not \
+            isfile(join(folder_with_parameter_files, 'fold_0', "model_final_checkpoint.model.pkl")):
+        download_weights = True
+    else:
+        if not isfile(join(folder_with_parameter_files, 'version')):
+            download_weights = True
+        else:
+            text = np.loadtxt(join(folder_with_parameter_files, 'version'), dtype=str)
+            if text != '2':
+                download_weights = True
+
+    if download_weights:
         if isdir(folder_with_parameter_files):
             shutil.rmtree(folder_with_parameter_files)
         maybe_mkdir_p(folder_with_parameter_files)
@@ -29,7 +41,7 @@ def maybe_download_weights():
         out_filename = join(folder_with_parameter_files, "parameters.zip")
 
         if not os.path.isfile(out_filename):
-            url = "https://zenodo.org/record/3380272/files/hd_glio_params.zip?download=1"
+            url = "https://zenodo.org/record/4014850/files/hd_glio_v2_params.zip?download=1"
             print("Downloading", url, "...")
             data = urlopen(url).read()
             with open(out_filename, 'wb') as f:
