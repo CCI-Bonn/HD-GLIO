@@ -106,7 +106,7 @@ fslreorient2std T2.nii.gz T2_reorient.nii.gz
 fslreorient2std FLAIR.nii.gz FLAIR_reorient.nii.gz
 ```
 
-#####The following is the recommended workflow for FSL5. There is a better way to do this but this requires FSL6 (see below)
+##### The following is the recommended workflow for FSL5. There is a better way to do this but this requires FSL6 (see below)
 ```
 # perform brain extraction using HD-BET (https://github.com/MIC-DKFZ/HD-BET)
 hd-bet -i T1_reorient.nii.gz
@@ -127,7 +127,7 @@ fsl5.0-fslmaths T2_reorient_bet_reg.nii.gz -mas T1_BRAIN_MASK.nii.gz T2_reorient
 fsl5.0-fslmaths FLAIR_reorient_bet_reg.nii.gz -mas T1_BRAIN_MASK.nii.gz FLAIR_reorient_bet_reg.nii.gz
 ```
 
-#####This is how to do it with FSL6:
+##### This is how to do it with FSL6:
 ```
 # run hd bet
 hd-bet -i T1_reorient.nii.gz -o t1_bet.nii.gz -s 1
