@@ -4,7 +4,7 @@ from . import paths
 from . import setup_hd_glio
 
 print("\n########################")
-print("If you are using hd-bet, please cite the following papers:\n")
+print("If you are using HD-GLIO, please cite the following papers:\n")
 print("Kickingereder P, Isensee F, Tursunova I, Petersen J, Neuberger U, Bonekamp D, Brugnara G, Schell M, Kessler T, "
       "Foltyn M, Harting I, Sahm F, Prager M, Nowosielski M, Wick A, Nolden M, Radbruch A, Debus J, Schlemmer HP, "
       "Heiland S, Platten M, von Deimling A, van den Bent MJ, Gorlia T, Wick W, Bendszus M, Maier-Hein KH. Automated "
